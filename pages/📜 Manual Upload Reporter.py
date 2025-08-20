@@ -6,10 +6,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configure API key
+# configure API key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Choose a Gemini model (text-only for summaries)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 st.set_page_config(page_title="AI-Powered Network Monitoring Reports", layout="wide")
@@ -17,7 +16,6 @@ st.set_page_config(page_title="AI-Powered Network Monitoring Reports", layout="w
 st.title("📊 AI-Powered Network & System Monitoring Reports")
 st.markdown("Upload your weekly network/system log files and generate AI-powered summary reports.")
 
-# Upload log files
 uploaded_files = st.file_uploader(
     "Upload log files (text or .log files)", 
     type=["txt", "log"], 

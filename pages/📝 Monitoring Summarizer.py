@@ -12,7 +12,6 @@ load_dotenv()
 # configure API key from https://aistudio.google.com/
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# choose a Gemini model (text-only for summaries)
 model = genai.GenerativeModel("gemini-2.5-flash")
 
 
@@ -78,7 +77,6 @@ if st.button("Generate Weekly Report"):
         st.subheader("📑 Weekly Monitoring Report")
         st.write(report)
 
-        # Option to download
         st.download_button(
             "📥 Download Report",
             report,
