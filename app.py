@@ -1,66 +1,61 @@
-# streamlit_app.py
 import streamlit as st
 import google.generativeai as genai
 import os
 from dotenv import load_dotenv
+from glob import glob
+from reporter import generate
 
 load_dotenv()
 
-# Configure API key
+# configure API key from https://aistudio.google.com/
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-# Choose a Gemini model (text-only for summaries)
+# choose a Gemini model (text-only for summaries)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
-st.set_page_config(page_title="AI-Powered Network Monitoring Reports", layout="wide")
-
-st.title("📊 AI-Powered Network & System Monitoring Reports")
-st.markdown("Upload your weekly network/system log files and generate AI-powered summary reports.")
-
-# Upload log files
-uploaded_files = st.file_uploader(
-    "Upload log files (text or .log files)", 
-    type=["txt", "log"], 
-    accept_multiple_files=True,
-
+st.set_page_config(
+    page_title="AI-Powered Network Monitoring Reporting",
+    layout="wide"
 )
 
-if uploaded_files:
-    all_logs = ""
-    for file in uploaded_files:
-        string_data = file.read().decode("utf-8", errors="replace")
-        all_logs += f"\n\n--- FILE: {file.name} ---\n{string_data}"
+st.title("📊 AI-Powered Network & System Monitoring Reporting")
+st.markdown("""
+Generate AI-powered weekly reports for multiple servers.
+Select a server and click "Generate Report" to process its logs.
+""")
 
-    st.success("✅ Logs successfully uploaded.")
-    
-    if st.button("Generate Weekly Report"):
-        with st.spinner("Analyzing logs and generating weekly summary..."):
-            prompt = f"""
-            You are an IT assistant for network/system monitoring.
-            Analyze the following log data and generate a **weekly report** with:
-            - Key incidents detected
-            - Repeated errors or anomalies
-            - Security-related warnings
-            - System performance trends
-            - Suggested actions for administrators
+# directory containing logs
+LOG_DIR = "./sample-logs"
 
-            Keep the report structured with bullet points and short paragraphs. Read only the logs from the latest 7 days.
-            If you can format each section in table form, it will be better.
-            
-            Logs:
-            {all_logs[:20000]}  # Truncate for safety if very large
-            """
+# Detect servers automatically
+log_files = glob(os.path.join(LOG_DIR, "*.*.log"))
+servers = sorted(set(os.path.basename(f).split(".")[0] for f in log_files))
 
-            response = model.generate_content(prompt)
-            report = response.text
+# Initialize session state
+if "reports" not in st.session_state:
+    st.session_state["reports"] = {}
 
-        st.subheader("📑 Weekly Monitoring Report")
-        st.write(report)
 
-        # Option to download
+# server selection
+with st.container():
+    selected_server = st.selectbox("Select server:", servers)
+    generate_button = st.button("Generate Report")
+
+
+reporter = st.empty()
+
+# generate report button
+if generate_button:
+    generate.generate_report(selected_server, model)  # Your function to generate report
+    report_text = st.session_state["reports"][selected_server]
+
+    # Display the report in the placeholder (overwrites previous)
+    with reporter.container():
+        st.subheader(f"📑 Weekly Monitoring Report: {selected_server}")
+        st.write(report_text)
         st.download_button(
-            "📥 Download Report",
-            report,
-            file_name="weekly_network_report.txt",
+            f"📥 Download Report: {selected_server}",
+            report_text,
+            file_name=f"weekly_report_{selected_server}.txt",
             mime="text/plain"
         )
