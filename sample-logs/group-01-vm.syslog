@@ -1,0 +1,10 @@
+Aug 02 14:22:11 group-01-vm systemd[1]: Starting Cleanup of Temporary Directories...
+Aug 03 10:11:02 group-01-vm CRON[2314]: (root) CMD (/usr/bin/php /var/www/html/wp-cron.php)
+Aug 08 12:13:19 group-01-vm apache2[1345]: [php7:error] PHP Fatal error:  Call to undefined function get_headerx()
+Aug 11 20:01:42 group-01-vm systemd[1]: Starting Daily apt upgrade and clean activities...
+Aug 15 05:13:31 group-01-vm systemd[1]: Finished Daily apt upgrade and clean activities.
+Aug 19 21:04:17 group-01-vm kernel: [244512.122311] Out of memory: Kill process 3123 (apache2) score 500 or sacrifice child
+Aug 19 21:04:18 group-01-vm systemd[1]: apache2.service: Main process exited, code=killed, status=9/KILL
+Aug 19 21:10:13 group-01-vm systemd[1]: apache2.service: Failed with result 'oom-kill'.
+Aug 19 22:36:10 group-01-vm systemd[1]: Stopping Apache HTTP Server...
+Aug 19 22:36:15 group-01-vm systemd[1]: Started Apache HTTP Server.

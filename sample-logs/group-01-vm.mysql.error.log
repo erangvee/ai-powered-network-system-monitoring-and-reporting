@@ -1,0 +1,8 @@
+2025-08-02T12:04:11.045832Z 0 [Note] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '10.11.6-MariaDB-1'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306
+2025-08-11T20:22:01.345632Z 2 [Warning] [MY-010055] [Server] IP address '203.0.113.55' could not be resolved: Name or service not known
+2025-08-18T16:12:21.883742Z 8 [Note] [MY-013360] [Server] SSL connections supported
+2025-08-19T21:04:17.882432Z 10 [Warning] [MY-013360] [Server] Too many connections
+2025-08-19T21:04:18.882532Z 11 [ERROR] [MY-010931] [Server] Can't create thread to handle new connection (errno 11); OOM
+2025-08-19T21:10:11.882632Z 12 [ERROR] [MY-010914] [Server] Aborting connection due to resource exhaustion
+2025-08-19T22:36:10.992632Z 0 [Note] [MY-010931] [Server] /usr/sbin/mysqld: normal shutdown
+2025-08-19T22:36:13.993842Z 0 [Note] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections.

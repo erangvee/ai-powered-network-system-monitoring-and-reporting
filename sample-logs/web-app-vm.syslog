@@ -1,0 +1,21 @@
+Aug 01 08:15:42 web-app-vm systemd[1]: Starting Daily apt upgrade and clean activities...
+Aug 01 08:15:43 web-app-vm systemd[1]: Finished Daily apt upgrade and clean activities.
+Aug 02 12:21:43 web-app-vm CRON[2314]: (root) CMD (/usr/bin/php /var/www/html/cron.php)
+Aug 03 14:23:11 web-app-vm systemd[1]: Started User Manager for UID 1000
+Aug 04 19:34:21 web-app-vm kernel: [244512.122311] CPU0: Core temperature above threshold
+Aug 05 08:04:11 web-app-vm systemd[1]: Starting Nginx HTTP Server...
+Aug 05 08:04:12 web-app-vm systemd[1]: Started Nginx HTTP Server.
+Aug 06 16:44:12 web-app-vm systemd[1]: Started Session 221 of user www-data
+Aug 07 18:02:34 web-app-vm CRON[2411]: (root) CMD (/usr/bin/php /var/www/html/cron.php)
+Aug 08 12:51:19 web-app-vm systemd[1]: Started Daily apt upgrade and clean activities.
+Aug 09 21:15:33 web-app-vm systemd[1]: Starting User Manager for UID 1001
+Aug 10 13:33:45 web-app-vm kernel: [244612.345112] Memory cgroup: usage 1024M
+Aug 11 17:41:05 web-app-vm systemd[1]: Started Session 222 of user www-data
+Aug 12 20:04:21 web-app-vm systemd[1]: Starting Nginx reload...
+Aug 13 08:12:12 web-app-vm systemd[1]: Finished Nginx reload
+Aug 14 15:54:33 web-app-vm CRON[2511]: (root) CMD (/usr/bin/php /var/www/html/cron.php)
+Aug 15 11:24:12 web-app-vm systemd[1]: Started Daily apt upgrade and clean activities.
+Aug 16 17:21:43 web-app-vm kernel: [244712.234112] CPU0: Core temperature normal
+Aug 17 22:34:54 web-app-vm systemd[1]: Started Session 223 of user www-data
+Aug 18 19:41:12 web-app-vm CRON[2612]: (root) CMD (/usr/bin/php /var/www/html/cron.php)
+Aug 19 10:04:22 web-app-vm systemd[1]: Started User Manager for UID 1002

@@ -1,0 +1,10 @@
+2025-08-01 09:45:12,123 fail2ban.filter         [891]: INFO    [sshd] Found 203.0.113.15 - 2025-08-01 09:45:12
+2025-08-01 09:45:13,456 fail2ban.actions        [891]: NOTICE  [sshd] Ban 203.0.113.15
+2025-08-03 14:23:21,111 fail2ban.filter         [891]: INFO    [nginx-http-auth] Found 203.0.113.12 - 2025-08-03 14:23:21
+2025-08-03 14:23:23,212 fail2ban.actions        [891]: NOTICE  [nginx-http-auth] Ban 203.0.113.12
+2025-08-05 08:32:42,512 fail2ban.filter         [891]: INFO    [sshd] Found 198.51.100.42 - 2025-08-05 08:32:42
+2025-08-05 08:32:44,612 fail2ban.actions        [891]: NOTICE  [sshd] Ban 198.51.100.42
+2025-08-12 20:04:31,811 fail2ban.filter         [891]: INFO    [nginx-http-auth] Found 203.0.113.250 - 2025-08-12 20:04:31
+2025-08-12 20:04:33,913 fail2ban.actions        [891]: NOTICE  [nginx-http-auth] Ban 203.0.113.250
+2025-08-18 21:05:44,123 fail2ban.filter         [891]: INFO    [nginx-http-auth] Found 203.0.113.88 - 2025-08-18 21:05:44
+2025-08-18 21:05:45,223 fail2ban.actions        [891]: NOTICE  [nginx-http-auth] Ban 203.0.113.88
