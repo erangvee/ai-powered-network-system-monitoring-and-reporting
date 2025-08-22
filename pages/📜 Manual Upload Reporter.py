@@ -2,6 +2,8 @@
 import streamlit as st
 import google.generativeai as genai
 import os
+
+from reporter import generate
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -32,37 +34,7 @@ if uploaded_files:
     
     if st.button("Generate Weekly Report"):
         with st.spinner("Analyzing logs and generating weekly summary..."):
-            prompt = f"""
-             You are an IT assistant for network/system monitoring.
-
-            Analyze the following log data and generate a **weekly report** covering the last 7 days.
-
-            Requirements:
-
-            1. Present **all sections in Markdown table format**.
-            2. Include the following sections, each as its own table:
-
-                - **Key Incidents Detected**
-                    Columns: Date | Time | Server Name | Log Source | Description | Severity | Recommended Actions
-                    
-                - **Repeated Errors or Anomalies**
-                    Columns: Date | Time | Server Name | Log Source | Description | Frequency | Notes
-                    
-                - **Security-Related Warnings**
-                    Columns: Date | Time | Server Name | Log Source | Description | Severity | Recommended Actions
-                    
-                - **System Performance Trends**
-                    Columns: Date | Time | Server Name | Metric | Observation | Recommendation
-                    
-                - **Summary of Suggested Actions for Administrators**
-                    Columns: Section | Action | Priority | Notes
-
-            3. Each table row should contain **one concise entry**.
-            4. Keep descriptions informative but brief.
-            5. Use proper capitalization and punctuation.
-
-            In another section, give an executive summary that we can show to our top management.
-
+            prompt = generate.load_prompt("prompt") + f"""
                 Logs:
                 {all_logs[-20000:]}  # Take the last 20k characters for safety
             """
