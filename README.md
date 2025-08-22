@@ -38,7 +38,8 @@ Generate various types of logs (as found under /var/log) covering this period, w
 
 ### 1. Centralized Monitoring  
 Servers on the same network can periodically transfer their logs (e.g., via **cron jobs**) to a central **head node** running this application.  
-The reporter then generates consolidated reports across all nodes.  
+
+You can then select an endpoint and generate insights from its logs. 
 
 ### 2. Manual Log Upload  
 For systems outside the managed network, logs can be **manually uploaded** into the application for AI-based analysis.  
