@@ -1,7 +1,5 @@
-# streamlit_app.py
 import streamlit as st
 import google.generativeai as genai
-import os
 import configparser
 
 from reporter import generate
@@ -12,7 +10,7 @@ config = configparser.ConfigParser()
 config.read("vars.cfg")
 
 # configure API key
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=st.secrets["api"]["GOOGLE_API_KEY"])
 
 model = genai.GenerativeModel(config["DEFAULT"]["GEMINI_MODEL"])
 
