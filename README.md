@@ -64,6 +64,9 @@ Install the required packages from `requirements.txt` by executing:
 pip install -r requirements.txt
 ```
 
+### 4. `prompt`
+Modify the `prompt` file as needed.
+
 ## Deployment
 Run the following command:
 
