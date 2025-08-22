@@ -4,6 +4,8 @@ This proof-of-concept application ingests one or more system log files and uses 
 
 The **goal** is to demonstrate how generative AI can enhance the productivity of network and system administrators by assisting with log analysis, anomaly detection, and incident reporting.  
 
+## [💻 Demo Here](https://ai-powered-ns-reporting.streamlit.app/)
+
 ---
 
 ## ⚠ Important Notice  
