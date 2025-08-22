@@ -2,16 +2,19 @@
 import streamlit as st
 import google.generativeai as genai
 import os
+import configparser
 
 from reporter import generate
 from dotenv import load_dotenv
 
 load_dotenv()
+config = configparser.ConfigParser()
+config.read("vars.cfg")
 
 # configure API key
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel(config["DEFAULT"]["GEMINI_MODEL"])
 
 st.set_page_config(page_title="AI-Powered Network Monitoring Reports", layout="wide")
 

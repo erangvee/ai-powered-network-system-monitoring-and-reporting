@@ -1,19 +1,21 @@
 import streamlit as st
 import google.generativeai as genai
 import os
+import configparser
 
 from dotenv import load_dotenv
 from reporter import generate
-from glob import glob
 
 st.set_page_config(page_title="Summarizer", layout="wide")
 
 load_dotenv()
+config = configparser.ConfigParser()
+config.read("vars.cfg")
 
 # configure API key from https://aistudio.google.com/
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-model = genai.GenerativeModel("gemini-2.5-flash")
+model = genai.GenerativeModel(config["DEFAULT"]["GEMINI_MODEL"])
 
 
 st.title("📊 AI-Powered Network & System Monitoring Reporting - Executive Summary")
@@ -23,7 +25,7 @@ Select a server and click "Generate Report" to process its logs.
 """)
 
 # directory containing logs
-LOG_DIR = "./sample-logs"
+LOG_DIR = config["DEFAULT"]["LOG_DIR"]
 
 all_logs = ""
 source_logs = os.listdir(LOG_DIR)
