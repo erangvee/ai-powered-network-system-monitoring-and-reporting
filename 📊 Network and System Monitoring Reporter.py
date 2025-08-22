@@ -12,7 +12,7 @@ config = configparser.ConfigParser()
 config.read("vars.cfg")
 
 # configure API key from https://aistudio.google.com/
-genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+genai.configure(api_key=st.secrets["api"]["GOOGLE_API_KEY"])
 
 # choose a Gemini model (text-only for summaries)
 model = genai.GenerativeModel(config["DEFAULT"]["GEMINI_MODEL"])
