@@ -41,10 +41,10 @@ Logs from multiple endpoints are summarized into a single AI-generated report, h
 
 # Using the Reporter
 ## Prerequisites
-### 1. `.env` file
-Create a `.env` file containing the following details:
+### 1. `.streamlit/secrets.toml` file
+Create a `secrets.toml` file inside a `.streamlit/` folder containing the following details:
 ```
-GOOGLE_API_KEY=<YOUR API KEY>
+GOOGLE_API_KEY = "<YOUR API KEY>"
 ```
 
 Where `<YOUR API KEY>` is a Google AI Studio API key generated from https://aistudio.google.com/. 
